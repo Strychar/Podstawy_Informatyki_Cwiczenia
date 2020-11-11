@@ -1,0 +1,50 @@
+#!/bin/bash
+
+if [ "$1" = "-h" ] || [ "$1" = "-?" ] || [ "$1" = "-p" ]
+then
+cat help.txt | less
+else
+
+echo -e "Witaj $USER"
+echo -e "Program Kalkulator"
+sleep 1
+$kon = "t"
+while [ "$kon" = "tak" ] || [ "$kon" = "t" ]
+do
+
+clear
+
+echo -e "Podaj znak działania (+,-,*,/,^,P - Pierwistkowanie)
+read znak
+echo -e "Podaj x"
+read xx
+if [ "$znak" = "+" ] || [ "$znak" = "-" ] || [ "$znak" = "*" ] || [ "$znak" = "/" ]
+then
+echo -e "Podaj y"
+read yy
+else
+case "$znak" in
+    "+") echo "Wynik z + wynosi ="
+    echo "scale=2; $xx+$yy" | bc -l;;
+    
+    "-") echo "Wynik z - wynosi ="
+    echo "scale=2; $xx-$yy" | bc -l;;
+    
+    "*") echo "Wynik z * wynosi ="
+    echo "scale=2; $xx*$yy" | bc -l;;
+    
+    "/") echo "Wynik z / wynosi ="
+    echo "scale=2; $xx/$yy" | bc -l;;
+    
+    "^") echo "Wynik z podnoszenia do kwadratu wynosi ="
+    echo "scale=2; $xx*$xx" | bc -l;;
+    
+    "P") echo "Wynik z pierwiastkowania wynosi ="
+    echo "scale=2; sqrt($xx)" | bc -l;;
+    
+    *) echo "Zly znak"
+esac
+echo "Czy dalej chcesz korzystac z kalkulatora? (t/n)"
+read $kon
+done
+fi
