@@ -1,0 +1,16 @@
+#!/bin/bash
+
+clear
+
+$kon = "t"
+while [ "$kon" = "t" ] || [ "$kon" = "tak" ]
+do
+
+echo -e "Podaj numer linii, kontaktu ktory chesz usunac (do numeru dodaj 'd', np. '6d')"
+read numer
+
+sed -i "$numer" dane.txt
+echo -e "Dane zostalu usuniete"
+echo -e "Czy usunać kolejny kontakt? (t/n)"
+read $kon
+done

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+$kon = "t"
+while [ "$kon" = "t" ] || [ "$kon" = "tak" ]
+do
+clear
+
+echo -e "Jesli kontakt chcesz wyszukac poprzez"
+echo -e "\tNazwisko nacisnij 1"
+echo -e "\tImie nacisnij 2"
+echo -e "\tNumer telefonu nacisnij 3"
+read opcja
+
+case $opcja in
+
+1) 
+echo -e "Podaj nazwisko"
+read nazwisko
+grep -n $nazwisko dane.txt ;;
+2)
+echo -e "Podaj imie"
+read imie
+grep -n $imie dane.txt ;;
+3)
+echo -e "Podaj numer telefonu (+aa-xxx-xxx-xxx)"
+read numer
+grep -n $numer dane.txt ;;
+
+esac
+
+echo -e "Czy wyszukać kolejny kontakt? (t/n)"
+read $kon
+done

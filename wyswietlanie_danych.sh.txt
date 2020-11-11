@@ -1,0 +1,6 @@
+#!/bin/bash
+
+clear
+
+sort dane.txt
+cat dane.txt | less

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+clear
+
+$kon = "t"
+while [ "$kon" = "t" ] || [ "$kon" = "tak" ]
+do
+
+echo -e "Podaj nazwisko:"
+read nazwisko
+echo -e "Podaj imie:"
+read imie
+echo -e "Podaj numer telefonu (+aa-xxx-xxx-xxx):"
+read telefon
+
+echo -e "$nazwisko $imie $telefon" >> dane.txt
+echo -e "nastepujace dane zostaly zapisane: $nazwisko $imie $telefon"
+echo -e "Czy dodać kolejny kontakt? (t/n)"
+read $kon
+done

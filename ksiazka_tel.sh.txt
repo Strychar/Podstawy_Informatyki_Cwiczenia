@@ -1,0 +1,36 @@
+#!/bin/bash
+
+clear
+$kon = "n"
+while [ "$kon" = "n" ] || [ "$kon" = "nie" ]
+do
+echo -e "To jest ksiazka telefoniczna"
+echo -e "Co chesz zrobic?:"
+echo -e "\t1. Dodac nowy kontakt"
+echo -e "\t2. Wyswietlic kontakty"
+echo -e "\t3. Wyszukac kontaktu"
+echo -e "\t4  Usunac kontakt."
+echo -e "\t5. Wyswietlic instrukcje"
+echo -e "\t0. Wyjsc z programu"
+echo -e "Podaj numer (1,2,3,4,5 lub 0)"
+
+read numer
+
+case $numer in
+  1) ./dodawanie_danych.sh ;;
+  
+  2) ./wyswietlanie_danych.sh ;;
+  
+  3) ./wyszukiwanie_danych.sh ;;
+  
+  4) ./usuwanie_danych.sh ;;
+  
+  5) cat help.txt | less ;;
+  
+  0) echo -e "Czy na pewno chcesz opuscic program? (t/n)"
+     read $kon ;;
+     
+  *) echo -e "Zly wybor" ;;
+esac
+
+done
