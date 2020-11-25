@@ -17,3 +17,61 @@ printf(""\n nowe a = %f \n", a);
 
 return 0;
 }
+
+---------------------------------
+
+#include <stdio.h>
+
+int main(void)
+{
+int i,j,x,w,k;
+printf("Podaj liczbe wierszy i kolumn");
+scanf(%d%d,&w&k);
+for(i=1;i<=w;i++)
+{
+if(i%2==1)
+{
+x=1;
+for (j=1;j<=k;j++)
+{
+printf("%d\t",x)
+if (x==1)
+x=0;
+else
+x=1;
+}
+}
+else
+{
+x=0;
+for (j=1;j<=k;j++)
+{
+if (x==1)
+x=0;
+else
+x=1;
+}
+}
+}
+return 0;
+}
+
+-------------------------------------------------------
+
+#include <stdio.h>
+
+int main()
+{
+    int i,silnia,x;
+    printf("Podaj liczbę silnii");
+    scanf( %d , x&);
+
+    for(i=1;i<=x;i++)
+    {
+        silnia=silnia*i;
+        printf("%d\t",&silnia);
+        printf("\n");
+    }
+
+    return 0;
+}
