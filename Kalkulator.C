@@ -55,3 +55,19 @@ switch (znak)
   }
 return 0;
 }
+
+int main()
+{
+    int w,k;
+    int i,j;
+    printf("Podaj liczbę wierszy i kolumn");
+    scanf(%f %f,&w &k);
+
+    for(j=1;j<=w;j++)
+    {
+        for(i=1;i<=k;i++)
+            printf("%d\t",w*k);
+        printf("\n");
+    }
+    return 0;
+}f
