@@ -3,23 +3,31 @@
 
 int main(void)
 {
-float a,b,c,x1,x2,d;
+    float a,b,c,x1,x2,d,p;
 
-printf("Podaj a, b i c z równania kwadratowego ax^2+bx+c\n");
-scanf("%f %f %f", &a, &b, &c);
+    printf("Podaj a, b i c z rownania kwadratowego ax^2+bx+c\n");
+    scanf("%f %f %f", &a, &b, &c);
 
-d = sqrt(b*b-4*a*c);
+    p=b*b-4*a*c;
+    d = sqrt(p);
 
-if(d==0)
-x1=(-b)/2*a;
+    if(d==0)
+    {
+        x1=(-b)/2*a;
+        printf("Miejce zerowe to %f.\n",x1);
+    }
 
-if(d>0)
-{
-x1=((-b)-d)/(2*a);
-x2=((-b)+d)/(2*a);
-}
-if(d<0)
-printf("Brak miejsc zerowych. Delta mniejsza od 0.\n");
+    if(d>0)
+    {
+        x1=((-b)-d)/(2*a);
+        x2=((-b)+d)/(2*a);
+        printf("Miejca zerowe to %f oraz %f.\n",x1, x2);
+    }
+    if(d<0)
+    {
+        printf("Brak miejsc zerowych. Delta mniejsza od 0.\n");
+    }
 
-return 0;
+
+    return 0;
 }
