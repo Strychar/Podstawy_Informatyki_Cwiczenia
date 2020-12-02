@@ -31,3 +31,26 @@ int main(void)
 
     return 0;
 }
+
+------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+int main()
+{
+    int tab[10], i ,zarodek,d,m;
+    zarodek=time(NULL);
+    srand(zarodek);
+    for(i=0;i<10;i++)
+    {
+        tab[i]=rand()100%;
+        printf("dla i = %d liczba pseudo losowa = %d\n", i, rand()100%);
+        if(tab[i]>tab[i-1])
+            d=tab[i];
+        if(tab[i]<tab[i-1])
+            m=tab[i];
+    }
+    return 0;
+}
