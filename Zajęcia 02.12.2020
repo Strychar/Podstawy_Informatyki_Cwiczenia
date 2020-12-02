@@ -1,0 +1,122 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+    float a,b,c,x1,x2,d,p;
+
+    printf("Podaj a, b i c z rownania kwadratowego ax^2+bx+c\n");
+    scanf("%f %f %f", &a, &b, &c);
+
+    p=b*b-4*a*c;
+    d = sqrt(p);
+
+    if(d==0)
+    {
+        x1=(-b)/2*a;
+        printf("Miejce zerowe to %f.\n",x1);
+    }
+
+    if(d>0)
+    {
+        x1=((-b)-d)/(2*a);
+        x2=((-b)+d)/(2*a);
+        printf("Miejca zerowe to %f oraz %f.\n",x1, x2);
+    }
+    if(d<0)
+    {
+        printf("Brak miejsc zerowych. Delta mniejsza od 0.\n");
+    }
+
+
+    return 0;
+}
+
+------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <time.h>
+int main()
+{
+    int tab[10], i ,zarodek,d,m;
+    zarodek=time(NULL);
+    srand(zarodek);
+    for(i=0;i<10;i++)
+    {
+        tab[i]=rand()100%;
+        printf("dla i = %d liczba pseudo losowa = %d\n", i, rand()%100);
+        if(tab[i]>tab[i-1])
+            d=tab[i];
+        if(tab[i]<tab[i-1])
+            m=tab[i];
+    }
+    return 0;
+}
+
+--------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+    int tab[10][10], i, j,zarodek;
+    zarodek=time(NULL);
+    srand(zarodek);
+    for(j=0;j<10;j++)
+    {
+        for(i=0;i<10;i++)
+        {
+            printf("%d\t", rand()%100);
+        }
+        printf("\n");
+    }
+    printf("\n");printf("\n");
+    for(j=0;j<10;j++)
+    {
+        for(i=0;i<10;i++)
+        {
+            if(i==j)
+                printf("%d\t", rand()%100);
+            else
+                printf("\t");
+        }
+        printf("\n");
+    }
+    for(j=10;j>=0;j--)
+    {
+        for(i=10;i>=0;i--)
+        {
+            if(i==j)
+                printf("%d\t", rand()%100);
+            else
+                printf("\t");
+        }
+        printf("\n");
+    }
+    for(j=10;j>=0;j--)
+    {
+        for(i=0;i<10;i++)
+        {
+            if(i==j)
+                printf("%d\t", rand()%100);
+            else
+                printf("\t");
+        }
+        printf("\n");
+    }
+    for(j=0;j<10;j++)
+    {
+        for(i=10;i>=0;i--)
+        {
+            if(i==j)
+                printf("%d\t", rand()%100);
+            else
+                printf("\t");
+        }
+        printf("\n");
+    }
+    return 0;
+}
