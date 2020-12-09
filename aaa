@@ -1,0 +1,38 @@
+#include <stdio.h>
+//#include <stdlib.h>
+//#include <time.h>
+int main()
+{
+    int i,x,y;
+    char zdanie[]="Ala ma kota";
+    x=0,y=0;
+
+
+    for(i=0;i<11;i++)
+    {
+        if (i == 0)
+        {
+            printf("%c",zdanie[i]);
+            x++;
+        }
+        else
+        {
+            if ( zdanie[i] == 32)
+            {
+                printf("%c",zdanie[i]);
+            }
+            else {
+
+                if (x == y) {
+                    printf("%c", zdanie[i] - 32);
+                    x++;
+                } else {
+                    printf("%c", zdanie[i]);
+                    y++;
+                }
+            }
+        }
+
+    }
+    return 0;
+}
