@@ -36,3 +36,37 @@ int main()
     }
     return 0;
 }
+
+--------------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+    int i,j,x,y;
+    int tab[15][10],zarodek;
+    zarodek=time(NULL);
+    srand(zarodek);
+    for(j=0;j<10;j++)
+    {
+        for(i=0;i<15;i++)
+        {
+            tab[i][j]=rand()%10;
+            printf("%d\t",tab[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n\n");
+    for(i=1;i<9;i++)
+    {
+        for (j=1;j<14;j++)
+        {
+            if(tab[i--][j]+tab[i++][j]>=tab[i][j]||tab[i][j--]+tab[i][j++]>=tab[i][j])
+            {
+                printf("%d - Kolumna %d Wiersz %d\n",tab[i][j],i,j);
+            }
+        }
+    }
+    return 0;
+}
