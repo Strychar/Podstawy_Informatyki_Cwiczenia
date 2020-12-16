@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+int main()
+{
+    int x1,x2,y1,y2,r1,r2;
+    int ilosc, tab[ilosc][3];
+    printf("Podaj wspolrzedne srodka okręgow oraz ich promien\n");
+    //printf("Podaj ilosc okregow, dla ktorych chcesz wykonac obliczenia (min 2), a potem podaj wspolrzedne srodka okręgow oraz ich promien\n");
+    //scanf("%d",&ilosc);
+    ilosc=2;
+    int i=1;
+    for (i;i<=ilosc;i++){
+        printf("Okrag %d:\n",i);
+        printf("Podaj x:");
+        scanf("%d",tab[i][1]);
+        printf("\n");
+        printf("Podaj y:");
+        scanf("%d",tab[i][2]);
+        printf("\n");
+        printf("Podaj promien:");
+        scanf("%d",tab[i][3]);
+        printf("\n");
+        }
+
+    int ws(tab[1][1],tab[2][1],tab[1][2],tab[2][2],tab[1][3],tab[2][3],i);
+    int pp(tab[1][1],tab[2][1],tab[1][2],tab[2][2],tab[1][3],tab[2][3]);
+    return 0;
+}
+
+int ws(int x1,int x2,int y1,int y2,int r1,int r2,int i) //obliczanie wspolrzednych
+{
+        if (x1==x2)
+            if (y1==y2)
+            {
+                 if (r1==r2)
+                    printf("Okregi %d oraz %d sa takie same",i,i--);
+                 else
+                    printf("Srodek okregow jest taki sam dla okregow %d",i);
+            }
+    return 0;
+}
+
+int pp(int x1,int x2,int y1,int y2,int r1,int r2) //punkty przecięcia
+{
+    if (r1+r2==sqrt((x1+x2)^2+(y1+y2)^2)){
+        printf("Okregi sa zewnetrznie styczne");
+    }
+
+    if (r1+r2>sqrt((x1+x2)^2+(y1+y2)^2))
+        printf("Okregi sa wewnatrz siebie");
+    if (r1+r2<sqrt((x1+x2)^2+(y1+y2)^2))
+        printf("Okregi sa nazewnatrz siebie");
+    if (r1>r2)
+    {
+        int r;
+        r=r1-r2;
+        if (r<sqrt((x1+x2)^2+(y1+y2)^2<r1+r2))
+            printf("Okregi przecinaja sie w dwoch punktach");
+        if (r==sqrt((x1+x2)^2+(y1+y2)^2))
+            printf("Okregi sa wewnętrznie styczne");
+    }
+    else
+    {
+        int r;
+        r=r2-r1;
+        if (r<sqrt((x1+x2)^2+(y1+y2)^2<r1+r2))
+            printf("Okregi przecinaja sie w dwoch punktach");
+        if (r==sqrt((x1+x2)^2+(y1+y2)^2))
+            printf("Okregi sa wewnętrznie styczne");
+    }
+
+    return 0;
+}
