@@ -70,41 +70,48 @@ float ws(int a1, int a2, int b1, int b2, int r1, int r2) //obliczanie wspolrzedn
 
 float po(int a1, int a2, int b1, int b2, int r1, int r2) //polozenie okregow
 {
-    if (r1+r2==sqrt(((a1 + a2) * (a1 + a2)) + ((b1 + b2) * (b1 + b2))))
+    if (r1+r2==sqrt(((a1 - a2) * (a1 - a2)) + ((b1 - b2) * (b1 - b2))))
     {
         printf("Okregi sa zewnetrznie styczne.\n");    pp(a1, a2, b1, b2, r1, r2);
     }
-    if (r1+r2>sqrt(((a1 + a2) * (a1 + a2)) + ((b1 + b2) * (b1 + b2))))
-        printf("Okregi sa wewnatrz siebie.\n");
-    if (r1+r2<sqrt(((a1 + a2) * (a1 + a2)) + ((b1 + b2) * (b1 + b2))))
-        printf("Okregi sa nazewnatrz siebie.\n");
     else
     {
-        if (r1>r2)
-        {
-            int r;
-            r=r1-r2;
-            if (r<sqrt(((a1 + a2) * (a1 + a2)) + ((b1 + b2) * (b1 + b2)) < r1 + r2))
-            {
-                printf("Okregi przecinaja sie w dwoch punktach.\n");    pp(a1, a2, b1, b2, r1, r2);
-            }
-            if (r==sqrt(((a1 + a2) * (a1 + a2)) + ((b1 + b2) * (b1 + b2))))
-                printf("Okregi sa wewnętrznie styczne.\n");    pp(a1, a2, b1, b2, r1, r2);
-        }
+        if (r1+r2>sqrt(((a1 - a2) * (a1 - a2)) + ((b1 - b2) * (b1 - b2))))
+            printf("Okregi sa wewnatrz siebie.\n");
         else
         {
-            int r;
-            r=r2-r1;
-            if (r<sqrt(((a1 + a2) * (a1 + a2)) + ((b1 + b2) * (b1 + b2)) < r1 + r2))
+            if (r1+r2<sqrt(((a1 - a2) * (a1 - a2)) + ((b1 - b2) * (b1 - b2))))
+                printf("Okregi sa nazewnatrz siebie.\n");
+            else
             {
-                printf("Okregi przecinaja sie w dwoch punktach.\n");    pp(a1, a2, b1, b2, r1, r2);
-            }
-            if (r==sqrt(((a1 + a2) * (a1 + a2)) + ((b1 + b2) * (b1 + b2))))
-            {
-                printf("Okregi sa wewnętrznie styczne.\n");    pp(a1, a2, b1, b2, r1, r2);
+                if (r1>r2)
+                {
+                    int r;
+                    r=r1-r2;
+                    if (r<sqrt(((a1 - a2) * (a1 - a2)) + ((b1 - b2) * (b1 - b2)))< r1 + r2)
+                    {
+                        printf("Okregi przecinaja sie w dwoch punktach.\n");    pp(a1, a2, b1, b2, r1, r2);
+                    }
+                    if (r==sqrt(((a1 - a2) * (a1 - a2)) + ((b1 - b2) * (b1 - b2))))
+                        printf("Okregi sa wewnętrznie styczne.\n");    pp(a1, a2, b1, b2, r1, r2);
+                }
+                else
+                {
+                    int r;
+                    r=r2-r1;
+                    if (r<sqrt(((a1 - a2) * (a1 - a2)) + ((b1 - b2) * (b1 - b2)))< r1 + r2)
+                    {
+                        printf("Okregi przecinaja sie w dwoch punktach.\n");    pp(a1, a2, b1, b2, r1, r2);
+                    }
+                    if (r==sqrt(((a1 - a2) * (a1 - a2)) + ((b1 - b2) * (b1 - b2))))
+                    {
+                        printf("Okregi sa wewnętrznie styczne.\n");    pp(a1, a2, b1, b2, r1, r2);
+                    }
+                }
             }
         }
     }
+
 
 
     return 0;
@@ -113,7 +120,7 @@ float po(int a1, int a2, int b1, int b2, int r1, int r2) //polozenie okregow
 float pp(int a1, int a2, int b1, int b2, int r1, int r2) //punkty przecięcia
 {
     //wszystkie obliczenia zostaly wyznaczone z rownania okregu i przyrownania ich do siebie dla dwoch okregow
-    float a,b,c,x,x1,x2,y,y1,y2,z1,z2,Delta;
+    int a,b,c,x,x1,x2,y,y1,y2,z1,z2,Delta;
 
     z1=(-2*(a1-a2)); //liczba pomocnicza 1
     z2=(r1*r1-r2*r2-a1*a1-b1*b1+a2*a2+b2*b2); //liczba pomocnicza 2
@@ -129,11 +136,15 @@ float pp(int a1, int a2, int b1, int b2, int r1, int r2) //punkty przecięcia
         x=(z2+2*y*(b1-b2))/z1;
         printf("Okregi przecinaja sie w punktcie (%d,%d)\n",x,y);
     }
-    y1=((-b-sqrt(Delta)/(2*a)));
-    y2=((-b+sqrt(Delta)/(2*a)));
-    x1=(z2+2*y1*(b1-b2))/z1;
-    x2=(z2+2*y2*(b1-b2))/z1;
+    else
+    {
+        y1=((-b-sqrt(Delta)/(2*a)));
+        y2=((-b+sqrt(Delta)/(2*a)));
+        x1=(z2+2*y1*(b1-b2))/z1;
+        x2=(z2+2*y2*(b1-b2))/z1;
 
-    printf("Okregi przecinaja sie w punktach (%d,%d) oraz (%d,%d)\n",x1,y1,x2,y2);
+        printf("Okregi przecinaja sie w punktach (%d,%d) oraz (%d,%d)\n",x1,y1,x2,y2);
+    }
+
     return 0;
 }
