@@ -1,0 +1,127 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main3() {
+
+    int **tab2d;
+    int w,k,i;
+    w=6;
+    k=3;
+
+    tab2d = malloc(w*sizeof(*tab2d));
+
+    for (i=0;i<w;i++)
+    {
+        tab2d[i] = malloc(k*sizeof(tab2d));
+
+    }
+
+    for (i=0;i<w;i++)
+    {
+        free(tab2d[i]);
+
+    }
+
+    free(tab2d);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main2 () {
+
+    int *tab;
+
+    int rozmiar_1;int rozmiar_2;
+
+    rozmiar_1=12;
+
+    tab = malloc(rozmiar_1 * sizeof(int)); // do stworzenia tablicy
+
+    tab= realloc(tab, rozmiar_2*sizeof(*tab)); //do zmiany wielkosci
+    free(tab);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main() {
+    int a,b,c,i;
+    char d,e,f;
+
+    int *adres_zmiennej;
+    int *adres_tablicy;
+
+    int tab[]={95,2,34,5,-1,6};
+
+    a=12;
+
+    adres_tablicy=&tab[0]; //------) adres_tablicy=tab; jest równoważne z tym pierwszym
+
+
+    printf("wartosc tablicy klasycznie %d\n", tab[0]);
+    printf("wartosc tablicy poprzez wskaznik %d\n", *adres_tablicy);
+     for (i=0;i<6;i++)
+     {
+         printf("wartosc tablicy poprzez wskaznik %d\n", *adres_tablicy++);
+     }
+
+
+    adres_zmiennej= &a;
+    printf("\n\n\n adres a %p\n", &a);
+    printf(" adres a %p\n", adres_zmiennej);
+    printf(" adres b %p\n", &b);
+    printf(" adres c %p\n", &c);
+
+    printf(" adres %p\n", &d);
+    printf(" adres %p\n", &e);
+    printf(" adres %p\n", &f);
+
+
+
+
+
+
+
+    printf("zmienna a zawiera = %d\n", a);
+    printf("zmienna a zawiera (ze wskaznika) = %d\n", *adres_zmiennej);
+
+    *adres_zmiennej= 666;
+    printf("zmienna a zawiera = %d\n", a);
+    printf("zmienna a zawiera (ze wskaznika) = %d\n", *adres_zmiennej);
+    // scanf("%d", &x);
+
+}
