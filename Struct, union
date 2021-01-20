@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+
+    int **tab;
+    int w,k,i,j,x;
+
+    struct osoba {
+        int wiek;
+        int waga;
+        float wzorst;
+        char imie[20];
+    }czlowiek_2;
+
+    union u_osoba{
+        int wiek;
+        int waga;
+        double wzrost;
+    };
+
+    struct osoba czlowiek_1;
+    union u_osoba u_czlowiek_1;
+
+    printf("rozmiar struktury = %ld\n", sizeof(czlowiek_1));
+    printf("rozmiar unii = %ld\n", sizeof(u_czlowiek_1));
+
+    struct osoba tablica[10];
+
+    tablica[0].wiek=13;
+    tablica[1].wiek=23;
+    tablica[2].wiek=33;
+
+    tablica[0].waga=95;
+
+    czlowiek_1.wiek=23;
+    czlowiek_1.waga=100;
+    czlowiek_1.wzorst=2.05;
+
+    czlowiek_2.wiek=42;
+
+    strcpy(czlowiek_1.imie, "Bartek");
+
+    printf("Witaj %s!\n", czlowiek_1.imie);
+
+    printf("wiek osoby 1 to %d\n", czlowiek_1.wiek);
+    printf("waga osoby 1 to %d\n", czlowiek_1.waga);
+    printf("wzrost osoby 1 to %.2f\n", czlowiek_1.wzorst);
+
+    return 0;
+}
